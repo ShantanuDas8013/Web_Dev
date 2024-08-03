@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation with Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            background-color: white;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .mt-5 {
+            margin-top: 5rem;
+        }
+        .btn {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+        .mb-3 {
+            margin-bottom: 1rem;
+        }
+        .navbar {
+            height: 75px;
+            background-color: whitesmoke;
+            color: #337ab7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .map-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        #map {
+            height: 400px;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <header><h1>Geolocation with Map</h1></header>
+    </div>
+    <div class="mt-5">
+        <button id="get-location" class="btn btn-success mb-3">Get Location</button>
+        <p id="status"></p>
+        <p id="latitude"></p>
+        <p id="longitude"></p>
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        document.getElementById('get-location').addEventListener('click', () => {
+            const status = document.getElementById('status');
+            const latitude = document.getElementById('latitude');
+            const longitude = document.getElementById('longitude');
+
+            function success(position) {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+
+                status.textContent = 'Location found!';
+                latitude.textContent = `Latitude: ${lat}`;
+                longitude.textContent = `Longitude: ${lon}`;
+
+                const map = L.map('map').setView([lat, lon], 13);
+
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+
+                L.marker([lat, lon]).addTo(map)
+                    .bindPopup('You are here!')
+                    .openPopup();
+            }
+
+            function error() {
+                status.textContent = 'Unable to retrieve your location';
+            }
+
+            if (!navigator.geolocation) {
+                status.textContent = 'Geolocation is not supported by your browser';
+            } else {
+                status.textContent = 'Locating…';
+                navigator.geolocation.getCurrentPosition(success, error);
+            }
+        });
+    </script>
+</body>
+</html>
