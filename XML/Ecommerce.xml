@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="Ecommerce.xsl"?>
+<!DOCTYPE Ecommerce SYSTEM "Ecommerce.dtd">
+<Ecommerce>
+    <Product>
+        <Name>Custom T-Shirt</Name>
+        <Category>Clothing</Category>
+        <Price>19.99</Price>
+        <Customization>
+            <Option>Size: S, M, L, XL</Option>
+            <Option>Color: Red, Blue, Green</Option>
+        </Customization>
+    </Product>
+    <Product>
+        <Name>Personalized Mug</Name>
+        <Category>Clothing</Category>
+        <Price>12.50</Price>
+        <Customization>
+            <Option>Color: Red, Blue, Green</Option>
+        </Customization>
+    </Product>
+    <Product>
+        <Name>Engraved Keychain</Name>
+        <Category>Accessories</Category>
+        <Price>15.00</Price>
+        <Customization>
+            <Option>Size: S, M, L, XL</Option>
+            <Option>Material: Cotton, Polyester</Option>
+        </Customization>
+    </Product>
+    <Product>
+        <Name>Custom Pillow</Name>
+        <Category>Home Decor</Category>
+        <Price>25.00</Price>
+        <Customization>
+            <Option>Size: S, M, L, XL</Option>
+        </Customization>
+    </Product>
+    <Product>
+        <Name>Monogrammed Tote Bag</Name>
+        <Category>Clothing</Category>
+        <Price>30.00</Price>
+        <Customization>
+            <Option>Color: Red, Blue, Green</Option>
+            <Option>Material: Cotton, Polyester</Option>
+        </Customization>
+    </Product>
+</Ecommerce>

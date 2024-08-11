@@ -1,0 +1,19 @@
+<!ENTITY category1 "Clothing">
+<!ENTITY category2 "Accessories">
+<!ENTITY category3 "Home Decor">
+<!ENTITY product1 "Custom T-Shirt">
+<!ENTITY product2 "Personalized Mug">
+<!ENTITY product3 "Engraved Keychain">
+<!ENTITY product4 "Custom Pillow">
+<!ENTITY product5 "Monogrammed Tote Bag">
+<!ENTITY option1 "Size: S, M, L, XL">
+<!ENTITY option2 "Color: Red, Blue, Green">
+<!ENTITY option3 "Material: Cotton, Polyester">
+
+<!ELEMENT Ecommerce (Product+)>
+<!ELEMENT Product (Name, Category, Price, Customization)>
+<!ELEMENT Name (#PCDATA)>
+<!ELEMENT Category (#PCDATA)>
+<!ELEMENT Price (#PCDATA)>
+<!ELEMENT Customization (Option+)>
+<!ELEMENT Option (#PCDATA)>
